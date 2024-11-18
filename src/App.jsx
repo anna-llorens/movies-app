@@ -1,5 +1,18 @@
+import { Route, Routes } from "react-router-dom";
+import Orders from "./pages/Orders";
+import Products from "./pages/Products";
 const App = () => {
-  return <h1>Hello, World! how are you? Fine and you?/</h1>;
+  return (
+    <>
+      <Routes>
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/products" element={<Products />} />
+      </Routes>
+      <div>
+        <h1>Movies app</h1>
+      </div>
+    </>
+  );
 };
 
 export default App;
