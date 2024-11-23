@@ -1,0 +1,16 @@
+.carrousels-wrapper {
+  padding-left: 20px;
+}
+
+.carousel-section {
+  margin: 20px 0;
+  color: white;
+  h2 {
+    margin-left: 10px;
+  }
+  .carousel {
+    display: flex;
+    overflow-x: scroll;
+    gap: 16px;
+  }
+}

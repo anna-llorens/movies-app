@@ -1,0 +1,22 @@
+@use "variables.scss";
+@use "mixins.scss";
+
+.button {
+  margin-top: 16px;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &.destroy {
+    background-color: variables.$color-red-1;
+    &:hover {
+      background-color: variables.$color-red-2;
+    }
+  }
+
+  @include mixins.color-list-type(background-color, true);
+}

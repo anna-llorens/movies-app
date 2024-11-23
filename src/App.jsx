@@ -1,16 +1,32 @@
 import { Route, Routes } from "react-router-dom";
-import Orders from "./pages/Orders";
-import Products from "./pages/Products";
+import { Header, Carousel } from "./components";
+import { MovieDetail } from "./pages/MovieDetail";
+
+import {
+  fetchPopularMovies,
+  fetchTopRatedMovies,
+  fetcComingMovies,
+} from "./api";
+
 const App = () => {
   return (
     <>
-      <Routes>
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/products" element={<Products />} />
-      </Routes>
-      <div>
-        <h1>Movies app</h1>
-      </div>
+      <Header />
+      <main className="main">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="carrousels-wrapper">
+                <Carousel title="Top" fetchMovies={fetchTopRatedMovies} />
+                <Carousel title="Upcoming" fetchMovies={fetcComingMovies} />
+                <Carousel title="Popular" fetchMovies={fetchPopularMovies} />
+              </div>
+            }
+          />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+        </Routes>
+      </main>
     </>
   );
 };

@@ -1,0 +1,33 @@
+@use "variables.scss";
+
+@mixin color-list-type($property: background-colo, $withHover: false) {
+  &.Top {
+    #{$property}: variables.$top-movies-color-1;
+
+    @if $withHover {
+      &:hover {
+        #{$property}: variables.$top-movies-color-2;
+      }
+    }
+  }
+
+  &.Upcoming {
+    #{$property}: variables.$upcoming-movies-color-1;
+
+    @if $withHover {
+      &:hover {
+        #{$property}: variables.$upcoming-movies-color-2;
+      }
+    }
+  }
+
+  &.Popular {
+    #{$property}: variables.$popular-movies-color-1;
+
+    @if $withHover {
+      &:hover {
+        #{$property}: variables.$popular-movies-color-2;
+      }
+    }
+  }
+}
