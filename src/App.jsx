@@ -2,11 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Header, Carousel } from "./components";
 import { MovieDetail } from "./pages/MovieDetail";
 
-import {
-  fetchPopularMovies,
-  fetchTopRatedMovies,
-  fetcComingMovies,
-} from "./api";
+import { fetchMovies } from "./api";
 
 const App = () => {
   return (
@@ -18,9 +14,18 @@ const App = () => {
             path="/"
             element={
               <div className="carrousels-wrapper">
-                <Carousel title="Top" fetchMovies={fetchTopRatedMovies} />
-                <Carousel title="Upcoming" fetchMovies={fetcComingMovies} />
-                <Carousel title="Popular" fetchMovies={fetchPopularMovies} />
+                <Carousel
+                  title="Top"
+                  fetchMovies={() => fetchMovies("top_rated")}
+                />
+                <Carousel
+                  title="Upcoming"
+                  fetchMovies={() => fetchMovies("upcoming")}
+                />
+                <Carousel
+                  title="Popular"
+                  fetchMovies={() => fetchMovies("popular")}
+                />
               </div>
             }
           />

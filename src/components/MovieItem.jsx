@@ -5,7 +5,9 @@ export const MovieItem = ({ movie, list }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/movie/${movie?.id}`, { state: { movie, list } });
+    navigate(`/movie/${movie?.id}`, {
+      state: { movie, list },
+    });
   };
 
   return (
