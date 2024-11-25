@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Image } from "./Image";
 
-export const MovieItem = ({ movie, list }) => {
+export const MovieItem = ({ movie, list: listType }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/movie/${movie?.id}`, {
-      state: { movie, list },
+    navigate(`/movie/${movie.id}`, {
+      state: { movieId: movie.id, listType },
     });
   };
 

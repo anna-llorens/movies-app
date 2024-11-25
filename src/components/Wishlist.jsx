@@ -8,7 +8,7 @@ export const Wishlist = ({ wishlist, clearWishlist }) => {
         {wishlist.length > 0 ? (
           wishlist.map((item) => (
             <li key={item.id}>
-              🎬 <strong>{item.title}</strong> ({item.release_date})
+              🎬 <strong>{item.title}</strong> ({item.releaseDate})
             </li>
           ))
         ) : (

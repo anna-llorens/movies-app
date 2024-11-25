@@ -1,17 +1,6 @@
-import { useEffect, useState } from "react";
 import { MovieItem } from "./MovieItem";
 
-export const Carousel = ({ title, fetchMovies }) => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    const getMovies = async () => {
-      const movieData = await fetchMovies();
-      setMovies(movieData);
-    };
-    getMovies();
-  }, [fetchMovies]);
-
+export const Carousel = ({ title, movies }) => {
   return (
     <div className="carousel-section">
       <h2>{title}</h2>

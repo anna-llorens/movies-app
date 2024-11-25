@@ -2,11 +2,7 @@
 @use "variables.scss";
 
 .movie-detail {
-  width: 100%;
-  margin: 0 auto;
   padding: 32px;
-  background-color: #1a1a1a;
-  color: #fff;
 
   &-container {
     display: grid;
