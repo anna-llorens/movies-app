@@ -1,6 +1,6 @@
 import { Button } from "./Button";
 
-export const Wishlist = ({ wishlist, clearWishlist }) => {
+export const Wishlist = ({ wishlist = [], clearWishlist }) => {
   return (
     <div className="wishlist">
       <h2> ⭐️ My Wishlist</h2>
