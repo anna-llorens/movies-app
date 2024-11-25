@@ -14,14 +14,30 @@ export const useWishlist = () => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
-  const toggleWishlist = (movie) => {
-    setWishlist((prevWishlist) => {
-      if (prevWishlist.some((item) => item.id === movie.id)) {
-        return prevWishlist.filter((item) => item.id !== movie.id);
-      }
-      return [...prevWishlist, movie];
-    });
+  const addToWishlist = (movie) => {
+    setWishlist((prev) => [...prev, movie]);
   };
 
-  return { wishlist, toggleWishlist };
+  const removeFromWishlist = (movieId) => {
+    setWishlist((prev) => prev.filter((item) => item.id !== movieId));
+  };
+
+  const toggleWishlist = (movie) => {
+    if (wishlist.some((item) => item.id === movie.id)) {
+      removeFromWishlist(movie.id);
+    } else {
+      addToWishlist(movie);
+    }
+  };
+
+  const clearWishlist = () => {
+    setWishlist([]);
+    localStorage.removeItem("wishlist");
+  };
+
+  return {
+    wishlist,
+    toggleWishlist,
+    clearWishlist,
+  };
 };

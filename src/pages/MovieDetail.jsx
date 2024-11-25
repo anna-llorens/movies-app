@@ -1,32 +1,13 @@
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+
 import { Wishlist, Button, Image } from "../components";
+import { useWishlist } from "../hooks/useWishlist";
 
 export const MovieDetail = () => {
   const location = useLocation();
-
   const { movie, list } = location?.state || {};
 
-  const [wishlist, setWishlist] = useState([]);
-
-  useEffect(() => {
-    const storedWishlist = localStorage.getItem("wishlist");
-    if (storedWishlist) {
-      setWishlist(JSON.parse(storedWishlist));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-  }, [wishlist]);
-
-  const toggleWishlist = () => {
-    if (wishlist.some((item) => item.id === movie?.id)) {
-      setWishlist(wishlist.filter((item) => item.id !== movie.id));
-    } else {
-      setWishlist([...wishlist, movie]);
-    }
-  };
+  const { wishlist, toggleWishlist, clearWishlist } = useWishlist();
 
   return (
     <div className="movie-detail">
@@ -42,19 +23,19 @@ export const MovieDetail = () => {
         {/* Column 2: Movie info */}
         <div className="movie-details-column">
           <h1 className={list}>{movie?.title}</h1>
-          <p>{movie?.description}</p>
+          <p>{movie?.overview}</p>
           <div className="additional-info-area">
             <ul>
               <li>
                 <strong className={list}>Release Date:</strong>{" "}
-                {movie?.releaseDate}
+                {movie?.release_date}
               </li>
               <li>
-                <strong className={list}>Rating:</strong> {movie?.rating}
+                <strong className={list}>Rating:</strong> {movie?.vote_average}
               </li>
               <li>
                 <strong className={list}>Genres:</strong>{" "}
-                {movie?.genres?.join(", ")}
+                {movie?.genres?.map((g) => g.name).join(", ")}
               </li>
             </ul>
           </div>
@@ -62,15 +43,12 @@ export const MovieDetail = () => {
 
         {/* Column 3: List Type and Wishlist */}
         <div className="wishlist-column">
-          <div className="list-type">
-            <h2 className={list}>{list} Movie</h2>
-          </div>
-          <Button onClick={toggleWishlist} variant={list}>
-            {wishlist.some((item) => item.id === movie?.id)
+          <Button onClick={() => toggleWishlist(movie)} variant={list}>
+            {wishlist.some((item) => item?.id === movie?.id)
               ? "Remove from Wishlist"
               : "Add to Wishlist"}
           </Button>
-          <Wishlist wishlist={wishlist} setWishlist={setWishlist} />
+          <Wishlist wishlist={wishlist} clearWishlist={clearWishlist} />
         </div>
       </div>
     </div>
