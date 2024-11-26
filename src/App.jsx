@@ -20,7 +20,7 @@ const App = ({ initialData = {} }) => {
               </div>
             }
           />
-          <Route path="/movie/:id" element={<MovieDetailPage />} />
+          <Route path="/movie/:movieId" element={<MovieDetailPage />} />
         </Routes>
       </main>
     </>

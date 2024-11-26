@@ -35,6 +35,8 @@ export const fetchMovieDetails = async (movieId) => {
       poster_path: data.poster_path,
       releaseDate: data.release_date,
       rating: data.vote_average,
+      tagline: data.tagline,
+      voteCount: data.vote_count,
       genres: data.genres.map((genre) => genre.name),
     };
   } catch (error) {

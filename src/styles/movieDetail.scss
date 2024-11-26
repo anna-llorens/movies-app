@@ -7,8 +7,8 @@
   display: flex;
   justify-content: space-between;
   gap: 32px;
+  flex-direction: column;
   @media screen and (max-width: 1280px) {
-    flex-direction: column;
   }
 
   .movie-detail-container {
@@ -32,13 +32,17 @@
 
     h1 {
       font-size: 40px;
-      font-weight: bold;
       margin-bottom: 16px;
+      color: white;
       @include mixins.color-list-type(color);
 
       @media screen and (max-width: 660px) {
         font-size: 32px;
       }
+    }
+
+    h4 {
+      @include mixins.color-list-type(color);
     }
 
     p {
@@ -60,4 +64,13 @@
       }
     }
   }
+}
+
+.movie-detail-loading,
+.movie-detail-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #ddd;
 }

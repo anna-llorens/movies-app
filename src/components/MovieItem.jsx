@@ -5,9 +5,7 @@ export const MovieItem = ({ movie, list: listType }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/movie/${movie.id}`, {
-      state: { movieId: movie.id, listType },
-    });
+    navigate(`/movie/${movie.id}?listType=${listType}`);
   };
 
   return (

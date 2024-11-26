@@ -1,21 +1,23 @@
-import { useLocation } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import { Wishlist, Button, Image } from "../components";
 import { useWishlist } from "../hooks/useWishlist";
 import { useMovieDetails } from "../hooks/useMovieDetails";
 
 export const MovieDetailPage = () => {
-  const location = useLocation();
-  const { movieId, listType } = location.state || {};
+  const { movieId } = useParams();
+  const [searchParams] = useSearchParams();
+  const listType = searchParams.get("listType");
+
   const { movieDetails, loading, error } = useMovieDetails(movieId);
   const { wishlist, toggleWishlist, clearWishlist } = useWishlist();
 
   if (loading) {
-    return <div>Loading movie details...</div>;
+    return <h2 className="movie-detail-loading">Loading movie details...</h2>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <h2 className="movie-detail-error">{error}</h2>;
   }
 
   return (
@@ -27,6 +29,7 @@ export const MovieDetailPage = () => {
         />
         <div className="movie-detail-info">
           <h1 className={listType}>{movieDetails?.title}</h1>
+          <h4 className={listType}>{movieDetails?.tagline}</h4>
           <Button
             onClick={() => toggleWishlist(movieDetails)}
             variant={listType}
@@ -44,7 +47,7 @@ export const MovieDetailPage = () => {
               </li>
               <li>
                 <strong className={listType}>Rating:</strong>{" "}
-                {movieDetails?.rating}
+                {movieDetails?.rating} ({movieDetails?.voteCount} votes)
               </li>
               <li>
                 <strong className={listType}>Genres:</strong>{" "}
