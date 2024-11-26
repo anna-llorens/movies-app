@@ -1,12 +1,70 @@
 .carousel-section {
-  margin: 20px 0;
-  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+
   h2 {
     margin-left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-left: 5px solid #ff6f61;
+    padding-left: 8px;
+    color: white;
   }
-  .carousel {
-    display: flex;
-    overflow-x: scroll;
-    gap: 16px;
+
+  .carousel-container {
+    position: relative;
+    padding: 10px;
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      scroll-behavior: smooth;
+      padding: 10px;
+      background-color: #2b2b2b;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 80px;
+      color: #ff6f61;
+      background-color: #2c2c2c;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .scroll-btn {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      background: #ff6f61;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .scroll-btn.left {
+      left: 0;
+    }
+
+    .scroll-btn.right {
+      right: 0;
+    }
+    .scroll-btn.hidden {
+      display: none;
+    }
   }
 }

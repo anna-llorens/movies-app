@@ -8,7 +8,14 @@
   justify-content: space-between;
   gap: 32px;
   flex-direction: column;
-  @media screen and (max-width: 1280px) {
+  &.top_rated {
+    font-family: "Segoe UI", sans-serif;
+  }
+  &.upcoming {
+    font-family: Georgia, serif;
+  }
+  &.popular {
+    font-family: Consolas, monospace;
   }
 
   .movie-detail-container {

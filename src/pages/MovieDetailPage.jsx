@@ -21,7 +21,7 @@ export const MovieDetailPage = () => {
   }
 
   return (
-    <div className="movie-detail-layout">
+    <div className={`movie-detail-layout ${listType}`}>
       <div className="movie-detail-container">
         <Image
           src={`https://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}

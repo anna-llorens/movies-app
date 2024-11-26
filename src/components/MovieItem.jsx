@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Image } from "./Image";
 
-export const MovieItem = ({ movie, list: listType }) => {
+export const MovieItem = ({ movie, listType }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

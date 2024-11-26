@@ -1,10 +1,10 @@
 const API_KEY = "de6d94b323d426325f1330a0876d979d";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export const fetchMovies = async (listType) => {
+export const fetchMovies = async (listType, page = 1) => {
   try {
     const response = await fetch(
-      `${BASE_URL}/movie/${listType}?api_key=${API_KEY}`
+      `${BASE_URL}/movie/${listType}?api_key=${API_KEY}&page=${page}`
     );
     if (!response.ok) {
       throw new Error(

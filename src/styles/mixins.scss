@@ -1,7 +1,7 @@
 @use "variables.scss";
 
 @mixin color-list-type($property: background-colo, $withHover: false) {
-  &.Top {
+  &.top_rated {
     #{$property}: variables.$top-movies-color-1;
 
     @if $withHover {
@@ -11,7 +11,7 @@
     }
   }
 
-  &.Upcoming {
+  &.upcoming {
     #{$property}: variables.$upcoming-movies-color-1;
 
     @if $withHover {
@@ -21,7 +21,7 @@
     }
   }
 
-  &.Popular {
+  &.popular {
     #{$property}: variables.$popular-movies-color-1;
 
     @if $withHover {

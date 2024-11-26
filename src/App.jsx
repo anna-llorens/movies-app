@@ -13,11 +13,23 @@ const App = ({ initialData = {} }) => {
           <Route
             path="/"
             element={
-              <div className="main-section">
-                <Carousel title="Top" movies={top} />
-                <Carousel title="Upcoming" movies={upcoming} />
-                <Carousel title="Popular" movies={popular} />
-              </div>
+              <>
+                <Carousel
+                  title="Top rated movies"
+                  movies={top}
+                  listType={"top_rated"}
+                />
+                <Carousel
+                  title="Upcoming movies"
+                  movies={upcoming}
+                  listType={"upcoming"}
+                />
+                <Carousel
+                  title="Most Popular movies"
+                  movies={popular}
+                  listType={"popular"}
+                />
+              </>
             }
           />
           <Route path="/movie/:movieId" element={<MovieDetailPage />} />

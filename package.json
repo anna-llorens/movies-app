@@ -1,7 +1,6 @@
 {
   "name": "movies-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build:client": "webpack --config webpack/client.config.js ",
@@ -12,8 +11,6 @@
     "test": "jest --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "css-loader": "^7.1.2",
     "express": "^4.21.1",
@@ -43,5 +40,12 @@
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0"
-  }
+  },
+  "volta": {
+    "node": "20.0.0",
+    "yarn": "1.22.19"
+  },
+  "author": "Anna Llorens",
+  "license": "ISC",
+  "description": "This is a learning app built mainly wiht React, Sass, Javascript and Webpack"
 }
