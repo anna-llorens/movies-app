@@ -19,18 +19,13 @@ export const MovieDetailPage = () => {
   }
 
   return (
-    <div className="movie-detail">
+    <div className="movie-detail-layout">
       <div className="movie-detail-container">
-        {/* Column 1: Picture */}
-        <div className="movie-picture-column">
-          <Image
-            src={`https://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}
-            alt={movieDetails?.title}
-          />
-        </div>
-
-        {/* Column 2: Movie info */}
-        <div className="movie-details-column">
+        <Image
+          src={`https://image.tmdb.org/t/p/w500${movieDetails?.poster_path}`}
+          alt={movieDetails?.title}
+        />
+        <div className="movie-detail-info">
           <h1 className={listType}>{movieDetails?.title}</h1>
           <Button
             onClick={() => toggleWishlist(movieDetails)}
@@ -58,12 +53,8 @@ export const MovieDetailPage = () => {
             </ul>
           </div>
         </div>
-
-        {/* Column 3: Wishlist */}
-        <div className="wishlist-column">
-          <Wishlist wishlist={wishlist} clearWishlist={clearWishlist} />
-        </div>
       </div>
+      <Wishlist wishlist={wishlist} clearWishlist={clearWishlist} />
     </div>
   );
 };

@@ -1,12 +1,14 @@
+@use "variables.scss";
+
 .header {
   position: fixed;
   padding: 8px;
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #4a90e2;
+  background-color: #333e4c;
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: variables.$box-shadow;
 
   .header-title {
     font-size: 24px;

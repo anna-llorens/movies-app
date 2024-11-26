@@ -1,3 +1,5 @@
+@use "variables.scss";
+
 .movie-item {
   text-align: center;
   max-width: 200px;
@@ -11,7 +13,7 @@
   }
 
   &:hover img {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: variables.$box-shadow;
     transform: scale(1.07);
   }
 
